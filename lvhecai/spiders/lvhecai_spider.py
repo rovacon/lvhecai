@@ -37,7 +37,8 @@ class MindhacksSpider(BaseSpider):
     	host=urlparse.urlparse(page_url)[1]
     	#print "request url:"+page_url
         #判断是否六合彩网站
-    	if self.myre(response,self.lvhecai_keys) and Selector(response).re('<xml>|<wml>'):
+    	if self.myre(response,self.lvhecai_keys):
+    	#if self.myre(response,self.lvhecai_keys) and Selector(response).re('<xml>|<wml>'):
         #if Selector(response).re('<xml>|<wml>'):
                 #判断是否登录网站
     		if self.myre(response,self.login_keys):
@@ -89,7 +90,7 @@ class MindhacksSpider(BaseSpider):
 		    				#if sorturl not in self.spideredurl and urllib.splittype(url)[0]=='http':
 		    				if sorturl not in self.spideredurl:
 		    					#print "spider:"+url
-		    					yield scrapy.Request(url, callback=self.parse)
+		    					#yield scrapy.Request(url, callback=self.parse)
 		    					self.spideredurl.append(sorturl)
 							self.spideredurl.sort()
 		    				#print a.select('text()').extract() [0]

@@ -13,6 +13,19 @@ with open('login.txt','r') as f:
                 #print host
 		login.append(host)
 
+#result_set=set(lvhecai) | set(login)
 result_set=set(lvhecai) - set(login)
-for re_host in result_set:
-	print re_host
+def rev(list):
+	newlist=[]
+	for re_host in list:
+		newlist.append(re_host[::-1])
+	#newlist.sort()
+	return newlist
+	#print '"'+re_host+'" : "time=30,", \\'
+
+rev_sorted = rev(result_set)
+rev_sorted.sort()
+result=rev(rev_sorted)
+for host in result:
+	print '"'+host+'" : "time=30,", \\'
+	#print '"'+host+'":"3,2,336,lbgproxy.zc.u3.ucweb.com:8080",\\'
