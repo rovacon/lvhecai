@@ -29,3 +29,28 @@ result=rev(rev_sorted)
 for host in result:
 	print '"'+host+'" : "time=30,", \\'
 	#print '"'+host+'":"3,2,336,lbgproxy.zc.u3.ucweb.com:8080",\\'
+
+print "\n\n"
+filterdic={}
+with open('filter.txt','r') as f:
+        for line in f.readlines():
+                filter_host=urlparse.urlparse(line.strip())[1]
+                if filter_host in result:
+			ks=[]
+			query=line.strip().split()[1]
+			for q in query.split(';'):
+				if q:
+					k=q.split('=')[0]
+					ks.append(k)
+			if filter_host in filterdic.keys():
+				value=list(set(filterdic[filter_host]) or set(ks))
+			else:
+				value=ks	
+			filterdic[filter_host]=value
+	filterkeylist=filterdic.keys()
+	filterkeylist=rev(filterkeylist)
+	filterkeylist.sort()
+	filterkeylist=rev(filterkeylist)
+	for a in filterkeylist:
+		print "\""+a+"\" : ",filterdic[a],",\\"
+                #login.append(host)

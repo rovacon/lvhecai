@@ -1,0 +1,88 @@
+"www.qq.com.1c9.net:8080" : "time=30,", \
+"6432.cc" : "time=30,", \
+"tk44.cc" : "time=30,", \
+"zt66.cc" : "time=30,", \
+"zt68.cc" : "time=30,", \
+"m.8aa.cc" : "time=30,", \
+"88cy.cc" : "time=30,", \
+"bb.tm6.me" : "time=30,", \
+"k.1gf.me" : "time=30,", \
+"5566.222wap.me" : "time=30,", \
+"m.txbb123.com" : "time=30,", \
+"cai444.com" : "time=30,", \
+"km.bm135.com" : "time=30,", \
+"252555.com" : "time=30,", \
+"657077.com" : "time=30,", \
+"www.657077.com" : "time=30,", \
+"n.mmm5678.com" : "time=30,", \
+"ky788.com" : "time=30,", \
+"189389.com" : "time=30,", \
+"11.icyifc.com" : "time=30,", \
+"h08.6hmc.com" : "time=30,", \
+"678.6hmc.com" : "time=30,", \
+"4.1.1.yxswhg.com" : "time=30,", \
+"4.1.3.yxswhg.com" : "time=30,", \
+"4.1.13.yxswhg.com" : "time=30,", \
+"4.1.7.yxswhg.com" : "time=30,", \
+"4.1.8.yxswhg.com" : "time=30,", \
+"246hk.com" : "time=30,", \
+"a.txkkk.com" : "time=30,", \
+"zxzok.com" : "time=30,", \
+"4.1.33.xgylhm.com" : "time=30,", \
+"a.uuunn.com" : "time=30,", \
+"161wap.com" : "time=30,", \
+"tu.bmttt.com" : "time=30,", \
+"3gdh.co" : "time=30,", \
+"zl50.info" : "time=30,", \
+"zl48.info" : "time=30,", \
+"x5.sanm.info" : "time=30,", \
+"v88.txc6.us" : "time=30,", \
+"1.tx7.us" : "time=30,", \
+"zl77.txy7.us" : "time=30,", \
+"txc.txy8.us" : "time=30,", \
+"zl1.txy9.us" : "time=30,", \
+"a.edns.us" : "time=30,", \
+"100822.net" : "time=30,", \
+"f.yw6789.net" : "time=30,", \
+"1.1c9.net" : "time=30,", \
+"abcse.net" : "time=30,", \
+"yl.16mmt.net" : "time=30,", \
+"7997.eu" : "time=30,", \
+"555678.pw" : "time=30,", \
+"2012.22cc.pw" : "time=30,", \
+"604.22cc.pw" : "time=30,", \
+"77hh.77hh.pw" : "time=30,", \
+"gp.77hh.pw" : "time=30,", \
+"91307zj3v1.wapzj.pw" : "time=30,", \
+"91730z6j3v17.wapzj.pw" : "time=30,", \
+"91730zj3w87.wapzj.pw" : "time=30,", \
+"91307zj3w8.wapzj.pw" : "time=30,", \
+
+
+
+"h08.6hmc.com" :  ['Curl'] ,\
+"4.1.7.yxswhg.com" :  ['mpd'] ,\
+"657077.com" :  ['sid', 'cid'] ,\
+"678.6hmc.com" :  ['Curl'] ,\
+"4.1.13.yxswhg.com" :  ['ph', 'p_id', 'mpd'] ,\
+"5566.222wap.me" :  ['lid', 'p', 'Curl'] ,\
+"189389.com" :  ['fr'] ,\
+"604.22cc.pw" :  ['p', 'Curl'] ,\
+"a.txkkk.com" :  ['ipp'] ,\
+"91307zj3w8.wapzj.pw" :  ['aid'] ,\
+"91307zj3v1.wapzj.pw" :  ['aid'] ,\
+"4.1.33.xgylhm.com" :  ['mpd'] ,\
+"2012.22cc.pw" :  ['p', 'Curl'] ,\
+"zt68.cc" :  ['Pn'] ,\
+"4.1.1.yxswhg.com" :  ['ph', 'p_id', 'mpd'] ,\
+"a.edns.us" :  ['p'] ,\
+"4.1.3.yxswhg.com" :  ['ph', 'p_id', 'mpd'] ,\
+"zt66.cc" :  ['Pn'] ,\
+"161wap.com" :  ['page'] ,\
+"88cy.cc" :  ['p'] ,\
+"x5.sanm.info" :  ['Curl'] ,\
+"4.1.8.yxswhg.com" :  ['ph', 'p_id', 'mpd'] ,\
+"k.1gf.me" :  ['Curl'] ,\
+"tu.bmttt.com" :  ['page'] ,\
+"zl77.txy7.us" :  ['lid', 'Curl'] ,\
+"77hh.77hh.pw" :  ['lid', 'p', 'Curl'] ,\

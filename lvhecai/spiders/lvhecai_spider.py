@@ -12,9 +12,11 @@ class MindhacksSpider(BaseSpider):
     #start_urls = ["http://zl77.txy7.us/"]
     #打开site文件作为开始url
     start_urls=[]
+    allowed_domains = []
     with open('site','r') as f:
         for line in f.readlines():
                 start_urls.append('http://'+line.strip())
+                allowed_domains.append(line.strip())
     lvhecai_keys=[u'中特',u'六合',u'马会',u'玛会',u'一玛',u'一码',u'特码',u'特玛',u'天下彩',u'曾道人',u'白小姐',]
     login_keys=[u'登录',u'注册','login',u'登陆']
     lvhecaihost=[]
@@ -51,13 +53,15 @@ class MindhacksSpider(BaseSpider):
     				log1.write(page_url+"\n")
     				log1.close()
     				self.loginhost.append(host)
-    			if host in self.lvhecaihost:
-                        	self.lvhecaihost.remove(host)
+    			#if host in self.lvhecaihost:
+                        	#self.lvhecaihost.remove(host)
 		#是六合彩网站不是登录网站
     		else:	
 			#判断是否在已记录的登录网站或者六合彩网站，如果记录就不重复
                         #print page_url+":尼马，明显的六合彩网站"
-	    		if host not in self.lvhecaihost or host not in self.loginhost:
+	    		if host not in self.lvhecaihost and host not in self.loginhost:
+				#print host
+				#print self.lvhecaihost
 	    			log2=open('lvhecai.txt','a')
 	    			log2.write(page_url+"\n")
 	    			log2.close()
@@ -74,7 +78,8 @@ class MindhacksSpider(BaseSpider):
 		    				url=urlparse.urljoin(base_url, relative_url) 
 						#print "url:"+url
 		    				query=urlparse.urlparse(url)[4]
-		    				path=urllib.splitquery(url)[0]
+		    				path=url.replace("?"+urlparse.urlparse(url)[4],'')
+		    				#path=urllib.splitquery(url)[0]
 		    				sorturl=""
 						#用base_url加上query的key作为url记录，防止同类型的模版爬太多
 		    				if query:
@@ -89,10 +94,13 @@ class MindhacksSpider(BaseSpider):
 		    					sorturl=url
 		    				#if sorturl not in self.spideredurl and urllib.splittype(url)[0]=='http':
 		    				if sorturl not in self.spideredurl:
-		    					#print "spider:"+url
-		    					#yield scrapy.Request(url, callback=self.parse)
 		    					self.spideredurl.append(sorturl)
 							self.spideredurl.sort()
+						        print sorturl
+		    					#print "spider:"+url
+		    					yield scrapy.Request(url, callback=self.parse)
+							if urlparse.urlparse(url)[1] in self.allowed_domains:
+								url_filter(url)
 		    				#print a.select('text()').extract() [0]
 						#else:
 						#	print "not spider:"+url
@@ -107,3 +115,25 @@ class MindhacksSpider(BaseSpider):
 		log3.close()
                 #print page_url+"not_lvhecai"
 
+def url_filter(url):
+	template=urllib.urlopen(url)
+	if template.getcode() != 200:
+                return False
+	html=template.read()
+	path,query=urllib.splitquery(url)
+	if not query:
+		return False
+	querylist=query.split('&')
+	canfilterlist=[]
+	for attr in querylist:
+		if attr:
+			newurl=path+"?"+query.replace(attr,'')
+			newhtml=urllib.urlopen(newurl).read()
+			if html == newhtml:
+				print attr+" can be filtered"
+				canfilterlist.append(attr)
+			else:
+				print attr+' can not filtered'
+	if len(canfilterlist):
+		with open('filter.txt','a') as f:
+			f.write(url+'\t'+';'.join(canfilterlist)+'\n')
